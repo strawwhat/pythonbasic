@@ -91,7 +91,11 @@ class WebsiteConstructor(Dispatcher, ContentHandler):
 		self.passthrough = False
 		self.writeFooter()
 		self.out.close()
-		
+
+'''
+#xml文件中有中文 在写入文件时添加 <meta charset=\"utf-8\">让浏览器知道以哪种编码打开文件
+self.out.write('<html>\n <meta charset=\"utf-8\">\n <head>\n 	<title>')
+'''		
 	def writeHeader(self, title):
 		self.out.write('<html>\n <head>\n	<title>')
 		self.out.write(title)
