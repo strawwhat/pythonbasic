@@ -153,7 +153,7 @@ class ChatSession(async_chat):
 		self.enter(LoginRoom(server))
 
 	def enter(self, room):
-		#从当前房间移除自身(self), 并且将自身添加到下一个房间
+		#从当前房间移除自身(self), 并且将自身添加到下一个房间,从LoginRoom移动到ChatRoom
 		try:
 			cur = self.room
 		except AttributeError:
@@ -225,5 +225,7 @@ Chatsession()继承async_chat, 构造函数调用enter(LoginRoom)进入LoginRoom
 do_login方法  用login输入名字进入并且确保用户名没有被使用，
 然后用session.enter(self.server.main_room)进入ChatRoom()类
 
+可用命令
+login name 登录， logout 退出， say 发言， look 谁在同一个房间内， who 谁登录了
 """
 
