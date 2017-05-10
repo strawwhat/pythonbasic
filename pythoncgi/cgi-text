@@ -1,0 +1,21 @@
+#把index.html放在apache2/htdocs文件夹中，或者修改原来存在的It's works的 index.html文件
+然后浏览器 localhost 或者自己的localhost/index1.html
+
+index.html-----------------
+一个带有能输入文件名的表单网页，包括一个触发edit.cgi的Open按钮
+index.html中文本框被命名为filename，
+#这样就保证它的内容会被当作CGI的filename参数提供给edit.cgi脚本，也就是form标签的action特性
+
+edit.cgi-------------------
+在文本域中显示给定文件的脚本，并且有输入密码的文本框和触发sava.cgide Save按钮
+<input type='hidden' value='%s' name='filename' />
+文件名被保存在hidden表单元素中所以它会被传递到下一个脚本(save.cgi)中
+<input name='password' type='password' /><br />
+密码处理使用了password类型 而不是text类型的input元素，使输入到文本框的字符会显示为星号
+save.cgi------------------
+保存收到的文本到给定文件的脚本，并且显示简单的信息 The file has been saved 或Invaild password
+form.getvalue()得到text filename password
+然后判断是否存在，密码是否正确
+sha模块 SHA(Secure Hash Algorithm 安全哈希算法)是从输入的字符串中提取看似随机数据(摘要)的
+根本上无意义字符串的一种方法。
+
